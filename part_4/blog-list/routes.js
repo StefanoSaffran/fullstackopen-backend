@@ -5,6 +5,7 @@ const routes = express.Router();
 const loginController = require('./controllers/login-controller')
 const userController = require('./controllers/users-controller')
 const blogController = require('./controllers/blog-controller')
+const CommentController = require('./controllers/comment-controller')
 
 routes.post('/api/login', loginController.store);
 
@@ -18,5 +19,7 @@ routes.get('/api/blogs', blogController.index);
 routes.get('/api/blogs/:id', blogController.show);
 routes.put('/api/blogs/:id', blogController.update);
 routes.delete('/api/blogs/:id', blogController.delete);
+
+routes.post('/api/blogs/:id/comments', CommentController.store);
 
 module.exports = routes;
