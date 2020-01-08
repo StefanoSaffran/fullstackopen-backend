@@ -65,6 +65,10 @@ module.exports = {
           username: 1,
           name: 1
         })
+        .populate('comments',
+        {
+          text: 1
+        })
 
     res.json(blog.toJSON())
   },
